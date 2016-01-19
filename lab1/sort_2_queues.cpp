@@ -37,13 +37,9 @@ int MyQueue::dequeue(){
 }
 
 void MyQueue::display(){
-	// if (direction == 1)
-		for (vector<int>::iterator it = v.begin(); it != v.end(); it++)
-			printf("%d ", *it);
-		printf("\n");
-	// else
-	// 	for (vector<int>::reverse_iterator it = v.rbegin(); it != v.rend(); it++)
-	// 		printf("%d ", *it);
+	for (vector<int>::iterator it = v.begin(); it != v.end(); it++)
+		printf("%d ", *it);
+	printf("\n");
 }
 
 bool MyQueue::empty(){
