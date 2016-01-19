@@ -16,7 +16,7 @@ class QueueStack {
 
 	public:
 		void push(int d);
-		int delete2();
+		int pop();
 		void display();
 		bool empty();
 };
@@ -29,7 +29,7 @@ bool QueueStack::empty(){
 	return (v.size() == 0);
 }
 
-int QueueStack::delete2(){
+int QueueStack::pop(){
 	int d;
 	if (v.size() > 8){
 		d = v.back();
@@ -54,7 +54,7 @@ int main(){
 	qs.push(7);
 	qs.push(9);
 	qs.display();
-	cout << "Deleted " << qs.delete2() << endl;
+	cout << "Deleted " << qs.pop() << endl;
 	qs.push(1);
 	qs.push(0);
 	qs.display();
