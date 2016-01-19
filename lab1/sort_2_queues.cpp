@@ -1,0 +1,97 @@
+#include "bits/stdc++.h"
+#define MODULO 1000000007
+#define endl '\n'
+#define m(a) ((a)%MODULO)
+#define s(a) scanf("%d", &a)
+#define sl(a) scanf("%lld", &a)
+#define p(a) printf("%d\n", a)
+using namespace std;
+
+typedef unsigned long long ull;
+typedef long long ll;
+
+/*
+Improved Queue Implementation
+*/
+class MyQueue {
+	private:
+		vector <int> v;
+
+	public:
+		void enqueue(int d);
+		int dequeue();
+		void display();
+		bool empty();
+		int front();
+		int rear();
+};
+
+void MyQueue::enqueue(int d){
+	v.push_back(d);
+}
+
+int MyQueue::dequeue(){
+	int d = v.front();
+	v.erase( v.begin() );
+	return d;
+}
+
+void MyQueue::display(){
+	// if (direction == 1)
+		for (vector<int>::iterator it = v.begin(); it != v.end(); it++)
+			printf("%d ", *it);
+		printf("\n");
+	// else
+	// 	for (vector<int>::reverse_iterator it = v.rbegin(); it != v.rend(); it++)
+	// 		printf("%d ", *it);
+}
+
+bool MyQueue::empty(){
+	return (v.size() == 0);
+}
+
+int MyQueue::front(){
+	return v.front();
+}
+
+int MyQueue::rear(){
+	return v.back();
+}
+
+
+int main(){
+
+	MyQueue qmain, q1, q2;
+	int num, i, last, last_sorted;
+	
+	printf("Enter 10 numbers : \n");
+	for (i = 0; i < 5; i++){
+		scanf("%d", &num);
+		qmain.enqueue(num);
+	}
+
+	int flag = 0;
+	while (!qmain.empty()){
+		flag = 0;
+		last = qmain.dequeue();
+		while (!q1.empty()){
+			last_sorted = q1.dequeue();
+			if (last_sorted > last){
+				q2.enqueue(last);
+				q2.enqueue(last_sorted);
+				flag = 1;
+				break;
+			} else
+				q2.enqueue(last_sorted);
+		}
+		if (flag == 0)
+			q1.enqueue(last);
+		while (!q1.empty())
+			q2.enqueue(q1.dequeue());
+		while (!q2.empty())
+			q1.enqueue(q2.dequeue());
+	}
+
+	q1.display();
+	return 0;
+}

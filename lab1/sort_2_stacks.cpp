@@ -42,6 +42,7 @@ void MyStack::display(int direction = 1){
 	else
 		for (vector<int>::reverse_iterator it = v.rbegin(); it != v.rend(); it++)
 			printf("%d ", *it);
+	printf("\n");
 }
 
 bool MyStack::empty(){
@@ -53,57 +54,36 @@ int MyStack::top(){
 }
 
 
-/*
-Queue using 2 stacks
-*/
-class MyQueue {
-	private:
-		MyStack s1;
-		MyStack s2;
-
-	public:
-		void enqueue(int data);
-		int dequeue();
-		void display();
-};
-
-void MyQueue::enqueue(int data){
-	s1.push(data);
-}
-
-int MyQueue::dequeue(){
-	if (s2.empty())
-		while (!s1.empty())
-			s2.push(s1.pop());
-	return s2.pop();
-}
-
-void MyQueue::display(){
-	printf("\n");
-	s2.display(0);
-	s1.display(1);
-	printf("\n");
-}
-
-
 
 int main(){
-	MyQueue q;
-	
-	int in = 0, data1;
-	do {
-		printf("\n1 - enqueue\n2- dequeue\n3 - Display\n\n");
-		scanf("%d", &in);
-		if (in == 1){
-			printf("Insert : ");
-			scanf("%d", &data1);
-			q.enqueue(data1);
-		} else if (in == 2){
-			data1 = q.dequeue();
-			printf("dequeued %d\n", data1);
-		} else if (in == 3){
-			q.display();
+	MyStack smain, s1, s2;
+	int num, last;
+	printf("Enter 5 numbers : \n");
+	for (int i = 0; i < 5; i++){
+		scanf("%d", &num);
+		smain.push(num);
+	}
+
+	s1.push(smain.pop());
+	int flag;
+	while (!smain.empty()){
+		flag = 0;
+		last = smain.pop();
+		while (!s1.empty()){
+			if (s1.top() < last){
+				s1.push(last);
+				flag = 1;
+				break;
+			} else {
+				s2.push(s1.pop());
+			}
 		}
-	} while (in > 0);
+		if (flag == 0)
+			s1.push(last);
+		while (!s2.empty())
+			s1.push(s2.pop());
+	}
+	s1.display();
+
 	return 0;
 }
