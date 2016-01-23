@@ -1,4 +1,4 @@
-## Algorithms Course
+## Algorithms Course (4th semester)
 
 All my code is in C++
 
