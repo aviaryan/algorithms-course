@@ -7,6 +7,7 @@ All my code is in C++
 
 * [direct_address.cpp](lab1/direct_address.cpp) - Implement direct addressing in a table.
 * [hashing_with_chaining.cpp](lab1/hashing_with_chaining.cpp) - Implement hashing with chaining.
+* [linear_probing.cpp](lab1/linear_probing.cpp) - Implement hashing by probing using different schemes. Take care of deleted slots and differentiate them from slots never occupied.
 * [queue_2stacks.cpp](lab1/queue_2stacks.cpp) - Queue built using 2 stacks.
 * [sort_2_queues.cpp](lab1/sort_2_queues.cpp) and [sort_1_queue.cpp](lab1/sort_1_queue.cpp) - Write a routine for changing a sequence of elements in a queue according to a specified input permutation using two temporary queues. Do the same using a single temporary queue.
 * [sort_2_stacks.cpp](lab1/sort_2_stacks.cpp) - Write a routine for changing a sequence of elements in a stack according to a specified permutation using two temporary stacks.
