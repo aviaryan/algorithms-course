@@ -18,6 +18,7 @@ class MyStack {
 		vector <int> v;
 
 	public:
+		string name;
 		void push(int d);
 		int pop();
 		void display(int direction);
@@ -49,24 +50,53 @@ bool MyStack::empty(){
 }
 
 int MyStack::top(){
-	return v.back();
+	return (v.size() == 0) ? 1e9 : v.back();
+}
+
+
+void move(MyStack * s1, MyStack * s2){
+	int x;
+	if (s1->top() < s2->top()){
+		s2->push(x = s1->pop());
+		cout << "Moved " << x << " from " << s1->name << " to " << s2->name << endl;
+	} else {
+		s1->push(x = s2->pop());
+		cout << "Moved " << x << " from " << s2->name << " to " << s1->name << endl;
+	}
 }
 
 
 int main(){
 	MyStack smain, s1, s2;
-	int num;
-	printf("Enter 5 numbers : \n");
-	for (int i = 0; i < 5; i++){
-		scanf("%d", &num);
+	smain.name = "Source";
+	s1.name = "Destination";
+	s2.name = "Extra";
+
+	int num, size = 5;
+	if (size % 2 == 0)
+		swap(s1.name, s2.name);
+
+	cout << "Enter " << size << " numbers (in decreasing order, as in hanoi tower) : " << endl;
+	for (int i = 0; i < size; i++){
+		cin >> num;
 		smain.push(num);
 	}
 
-	while (!smain.empty())
-		s1.push(smain.pop());
-	while (!s1.empty())
-		s2.push(s1.pop());
-	s2.display();
+	int p = pow(2,size) - 1;
+	for (int i=1; i<=p; i++){
+		if (i%3 == 1){
+			move(&s1, &smain);
+		} else if (i%3 == 2){
+			move(&s2, &smain);
+		} else {
+			move(&s1, &s2);
+		}
+	}
+
+	if (size%2 == 1)
+		s1.display();
+	else
+		s2.display();
 
 	return 0;
 }
