@@ -46,7 +46,6 @@ void HashTable::display(){
 }
 
 
-
 int main(){
 	int t, i;
 	HashTable ht;

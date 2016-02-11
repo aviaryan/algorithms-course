@@ -38,6 +38,11 @@ public:
 	void display();
 };
 
+/**
+ * Insert key,value in Hash Table
+ * @param key   Key of item
+ * @param value Value of item
+ */
 void HashTableProbing::insert(int key, int value){
 	int hInd = key % SIZE;
 	int initial = hInd;

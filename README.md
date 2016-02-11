@@ -13,3 +13,9 @@ All my code is in C++
 * [sort_2_stacks.cpp](lab1/sort_2_stacks.cpp) - Write a routine for changing a sequence of elements in a stack according to a specified permutation using two temporary stacks.
 * [conditional_queue_stack.cpp](lab1/conditional_queue_stack.cpp) - A data structure that behaves like both stack and queue. If number of elements in it is more than 8, then deletion takes place like stack (LIFO) otherwise like queue (FIFO).
 * [stack_transfer.cpp](lab1/stack_transfer.cpp) - Tower of Hanoi using stacks
+
+
+#### Lab 2
+
+* [merge-sort.cpp](lab2/merge-sort.cpp) - Implement the standard equal-split version of merge sort.
+* [mergesort_sorted_grouped.cpp](lab2/mergesort_sorted_grouped.cpp) - Implement the scan, divide-into-maximal-monotonic-increasing-subarrays, merge variant of merge sort.
