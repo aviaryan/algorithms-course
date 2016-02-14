@@ -52,7 +52,7 @@ void mergeSortGrouped(int * sorted, int * arr, int size){
 	int i;
 	for (i=0; i<size; i++) sorted[i] = arr[i];
 	int groupArr[size], gid = 0;
-	bool reset = false;
+	//bool reset = false;
 	for (i=1; i<size; i++){
 		if (arr[i] < arr[i-1])
 			groupArr[gid++] = i-1;
