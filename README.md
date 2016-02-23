@@ -20,3 +20,8 @@ All my code is in C++
 * [merge-sort.cpp](lab2/merge-sort.cpp) - Implement the standard equal-split version of merge sort.
 * [mergesort_sorted_grouped.cpp](lab2/mergesort_sorted_grouped.cpp) - Implement the scan, divide-into-maximal-monotonic-increasing-subarrays, merge variant of merge sort.
 * [find_rank.cpp](lab2/find_rank.cpp) - Consider an array A indexed from 1 to n, such that for some unknown index k, 1 <= k <= n, the minimum element is at position k. The elements are placed in increasing order rightwards, starting with the minimum at position k and wrapping around at position n and continuing from position 1 to position k−1. Find rank of an element in O(Log N) worst time.
+
+
+#### Mid-semester
+
+* [heapsort.cpp](midsem/heapsort.cpp) - Implement Heapsort
