@@ -11,7 +11,7 @@ typedef long long ll;
 class heap {
 	private:
 		int arr[100];
-		int status;
+		int size;
 
 	public:
 		heap();
@@ -26,7 +26,7 @@ class heap {
 };
 
 heap::heap(){
-	status = 0;
+	size = 0;
 	fill_n(arr, 100, 0);
 	return;
 }
@@ -37,7 +37,7 @@ heap::heap(){
  * @param sz size of in array
  */
 void heap::build(int * in, int sz){
-	status = sz;
+	size = sz;
 	for (int i = 1; i <= sz; i++)
 		arr[i] = in[i-1];
 	rebuildHeap();
@@ -47,7 +47,7 @@ void heap::build(int * in, int sz){
  * restore the heap sequence
  */
 void heap::rebuildHeap(){
-	for (int i = status / 2; i > 0; i--)
+	for (int i = size / 2; i > 0; i--)
 		heapify(i);
 }
 
@@ -56,9 +56,9 @@ void heap::heapify(int p){
 
 	int l = p*2, r = p*2 + 1, mx = p;
 
-	if (l<=status)
+	if (l<=size)
 		if (arr[l] > arr[p]) mx = l;
-	if (r<=status)
+	if (r<=size)
 		if (arr[r] > arr[mx]) mx = r;
 
 	if (mx != p){
@@ -68,12 +68,12 @@ void heap::heapify(int p){
 }
 
 void heap::insert(int k){
-	arr[++status] = k;
-	heapify(status/2);
+	arr[++size] = k;
+	heapify(size/2);
 }
 
 void heap::print(){
-	for (int i=1; i<=status; i++) printf("%d ", arr[i]);
+	for (int i=1; i<=size; i++) printf("%d ", arr[i]);
 	printf("\n");
 }
 
@@ -81,13 +81,13 @@ void heap::print(){
  * sort using heapsort. The heap is now destroyed. Use rebuildHeap() to restore the heap sequence.
  */
 void heap::heapsort(){
-	int szBk = status;
-	for (int i = status; i > 1; i--){
+	int szBk = size;
+	for (int i = size; i > 1; i--){
 		swap(arr[i], arr[1]);
-		status--;
+		size--;
 		heapify(1);
 	}
-	status = szBk;
+	size = szBk;
 }
 
 
